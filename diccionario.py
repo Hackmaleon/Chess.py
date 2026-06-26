@@ -1,0 +1,67 @@
+casillas1 = {'A8': (0, 0), 'A7': (0, 75), 'A6': (0, 150), 'A5': (0, 225), 'A4': (0, 300), 'A3': (0, 375), 'A2': (0, 450), 'A1': (0, 525), 'B8': (75, 0), 'B7': (75, 75), 'B6': (75, 150), 'B5': (75, 225), 'B4': (75, 300), 'B3': (75, 375), 'B2': (75, 450), 'B1': (75, 525), 'C8': (150, 0), 'C7': (150, 75), 'C6': (150, 150), 'C5': (150, 225), 'C4': (150, 300), 'C3': (150, 375), 'C2': (150, 450), 'C1': (150, 525), 'D8': (225, 0), 'D7': (225, 75), 'D6': (225, 150), 'D5': (225, 225), 'D4': (225, 300), 'D3': (225, 375), 'D2': (225, 450), 'D1': (225, 525), 'E8': (300, 0), 'E7': (300, 75), 'E6': (300, 150), 'E5': (300, 225), 'E4': (300, 300), 'E3': (300, 375), 'E2': (300, 450), 'E1': (300, 525), 'F8': (375, 0), 'F7': (375, 75), 'F6': (375, 150), 'F5': (375, 225), 'F4': (375, 300), 'F3': (375, 375), 'F2': (375, 450), 'F1': (375, 525), 'G8': (450, 0), 'G7': (450, 75), 'G6': (450, 150), 'G5': (450, 225), 'G4': (450, 300), 'G3': (450, 375), 'G2': (450, 450), 'G1': (450, 525), 'H8': (525, 0), 'H7': (525, 75), 'H6': (525, 150), 'H5': (525, 225), 'H4': (525, 300), 'H3': (525, 375), 'H2': (525, 450), 'H1': (525, 525)}
+casillas_invertido= {v: k for k, v in casillas1.items()}
+pos=casillas1['C5']
+
+pos_casillas=(pos[0]//75, pos[1]//75)
+print(pos_casillas)
+
+
+if (7-pos_casillas[0])<(7-pos_casillas[1]):
+    casillas_posibles0= 7-pos_casillas[0] 
+else :
+    casillas_posibles0= 7-pos_casillas[1] 
+
+if (pos_casillas[0])<(7-pos_casillas[1]):
+    casillas_posibles1= pos_casillas[0] 
+else :
+    casillas_posibles1= 7-pos_casillas[1] 
+
+if (pos_casillas[0])<(pos_casillas[1]):
+    casillas_posibles2= pos_casillas[0] 
+else :
+    casillas_posibles2= pos_casillas[1] 
+
+if (7-pos_casillas[0])<(pos_casillas[1]):
+    casillas_posibles3= 7-pos_casillas[0] 
+else :
+    casillas_posibles3= pos_casillas[1] 
+
+print(casillas_posibles0,casillas_posibles1,casillas_posibles2,casillas_posibles3)
+
+casillas0 = {}
+casillas1 = {}
+casillas2 = {}
+casillas3 = {}
+
+
+n=1
+k=1
+for i in range(casillas_posibles0): 
+    casillas0[k]=(pos[0] + n*75, pos[1] + n*75)
+    print(casillas0.get(k)[0])
+    if casillas0[k]:
+        pass
+    n+= 1
+    k+=1
+
+n=1
+
+for i in range(casillas_posibles1): 
+    casillas1[k]=(pos[0] - n*75, pos[1] + n*75)
+    n+= 1
+    k+=1
+
+n=1
+
+for i in range(casillas_posibles2): 
+    casillas2[k]=(pos[0] - n*75, pos[1] - n*75)
+    n+= 1
+    k+=1
+
+n=1
+
+for i in range(casillas_posibles3): 
+    casillas3[k]=(pos[0] + n*75, pos[1] - n*75)
+    n+= 1
+    k+=1
+
